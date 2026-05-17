@@ -1,0 +1,13 @@
+{
+  "process_flow": [
+    {"step": 1, "action": "wafer_preparation", "duration_hours": 4},
+    {"step": 2, "action": "superconductor_deposition", "duration_hours": 12},
+    {"step": 3, "action": "qubit_patterning", "duration_hours": 8},
+    {"step": 4, "action": "gate_electrode_fabrication", "duration_hours": 16},
+    {"step": 5, "action": "interconnect_metallization", "duration_hours": 16},
+    {"step": 6, "action": "cmos_integration", "duration_hours": 120}
+  ],
+  "total_fabrication_time_hours": 400,
+  "total_fabrication_time_days": 16,
+  "cleanroom_requirements": "class_1"
+}

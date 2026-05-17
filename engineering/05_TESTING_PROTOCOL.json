@@ -1,0 +1,24 @@
+{
+  "testing_phases": [
+    {
+      "phase": "wafer_probe",
+      "tests": ["continuity_test", "leakage_current", "qubit_resonance"],
+      "pass_criteria": "all_parameters_within_2sigma"
+    },
+    {
+      "phase": "cryogenic_validation",
+      "temperature_mk": 100,
+      "tests": ["rabi_oscillations", "t1_coherence", "t2_coherence", "gate_fidelity"],
+      "pass_criteria": "t1>8854μs, fidelity>0.999899"
+    }
+  ],
+  "test_equipment": [
+    "vector_network_analyzer",
+    "arbitrary_waveform_generator",
+    "dilution_refrigerator"
+  ],
+  "quality_metrics": {
+    "yield_target_percent": 85,
+    "defect_density_per_cm2": 0.1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "control_architecture": {
+    "type": "switched_matrix_hierarchy",
+    "control_layers": 4,
+    "analog_control_voltage_max_mv": 500,
+    "digital_control_logic": "cmos_65nm",
+    "control_latency_ns": 5,
+    "control_bandwidth_per_qubit_mhz": 100
+  },
+  "pulse_sequences": {
+    "single_qubit_gate": {"pulse_duration_ns": 10, "pulse_shape": "gaussian", "amplitude_mv": 100},
+    "two_qubit_gate": {"pulse_duration_ns": 10, "pulse_shape": "cross_resonance", "amplitude_mv": 200},
+    "readout_pulse": {"pulse_duration_ns": 200, "readout_power_dbm": -90}
+  },
+  "control_hardware_requirements": {
+    "arbitrary_waveform_generators": 200,
+    "digitizers": 100,
+    "local_oscillators": 33,
+    "fpga_cores": 44
+  }
+}

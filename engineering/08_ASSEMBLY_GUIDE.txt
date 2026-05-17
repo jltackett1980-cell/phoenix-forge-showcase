@@ -1,0 +1,26 @@
+================================================================================
+ASSEMBLY GUIDE - Quantum Phoenix QPU-20000
+================================================================================
+
+PHASE 1: FABRICATION (Days 1-14)
+- Follow layer stack in 02_LAYER_STACK.json
+- Process flow in 04_MANUFACTURING_PROCESS.json
+
+PHASE 2: FRIDGE INTEGRATION (Day 15)
+- Connect thermal anchoring
+- Install magnetic shields
+- Verify base temperature < 100mK
+
+PHASE 3: CONTROL ELECTRONICS (Days 16-18)
+- Install 200 AWGs
+- Wire switched matrix control lines
+- Connect I/O lines
+
+PHASE 4: TESTING (Days 19-25)
+- Run 05_TESTING_PROTOCOL.json
+- Characterize all 20000 qubits
+- Validate error rates
+
+================================================================================
+END OF ASSEMBLY GUIDE
+================================================================================

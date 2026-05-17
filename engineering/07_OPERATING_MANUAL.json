@@ -1,0 +1,10 @@
+{
+  "pre_operation_checks": ["Verify temperature < 100mK", "Run calibration", "Verify control FPGA"],
+  "daily_maintenance": ["Calibrate pulses every 4 hours", "Monitor coherence", "Update timings"],
+  "error_mitigation": ["Dynamical decoupling", "Readout correction", "Zero-noise extrapolation"],
+  "software_stack": {
+    "control_os": "quantum_control_linux",
+    "api": "openqasm_3.0_compatible",
+    "error_correction": "surface_code_distance_7"
+  }
+}

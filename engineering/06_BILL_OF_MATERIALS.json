@@ -1,0 +1,10 @@
+{
+  "materials": [
+    {"material": "silicon_carbide_wafer", "quantity": 1, "supplier": "cree_inc"},
+    {"material": "niobium_titanium", "quantity": 333, "unit": "grams", "supplier": "goodfellow"},
+    {"material": "aluminum", "quantity": 133, "unit": "grams", "supplier": "alfa_aesar"},
+    {"material": "silicon_germanium", "quantity": 6, "unit": "wafers", "supplier": "iqe"}
+  ],
+  "total_material_cost_usd": 65000,
+  "yield_adjusted_cost": 78000.0
+}

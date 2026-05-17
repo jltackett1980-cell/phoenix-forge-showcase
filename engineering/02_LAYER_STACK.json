@@ -1,0 +1,18 @@
+{
+  "total_layers": 16,
+  "layer_definitions": [
+    {"layer": 1, "name": "substrate", "material": "silicon_carbide", "thickness_nm": 500000, "purpose": "thermal_management"},
+    {"layer": 2, "name": "superconducting_ground", "material": "niobium_titanium", "thickness_nm": 200, "purpose": "flux_shielding"},
+    {"layer": 3, "name": "qubit_resonators", "material": "aluminum", "thickness_nm": 100, "purpose": "qubit_readout"},
+    {"layer": 4, "name": "quantum_dots", "material": "silicon_germanium", "thickness_nm": 50, "purpose": "qubit_formation"},
+    {"layer": 5, "name": "gate_electrodes", "material": "titanium_nitride", "thickness_nm": 50, "purpose": "qubit_control"},
+    {"layer": 6, "name": "interconnect_routing", "material": "copper", "thickness_nm": 500, "purpose": "signal_distribution"},
+    {"layer": 7, "name": "switched_matrix", "material": "cmos_switches", "thickness_nm": 200, "purpose": "dynamic_routing"},
+    {"layer": 8, "name": "readout_amplifiers", "material": "hcmos", "thickness_nm": 150, "purpose": "signal_amplification"}
+  ],
+  "fabrication_notes": [
+    "All layers must be aligned within 5nm precision",
+    "Vacuum deposition at < 1e-9 torr",
+    "Room temperature processing only for photonic layers"
+  ]
+}

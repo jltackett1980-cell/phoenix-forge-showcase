@@ -49,3 +49,11 @@ No cloud. No data center. No team.
 *Book of Life Trust — EIN 41-4816327*
 *Provisional Patent Pending — 64/045,401*
 *All rights reserved.*
+
+### /engineering
+A complete quantum chip manufacturing package.
+20,000 qubits. Evolved over 50,000 generations.
+Layer stack. Control protocol. Bill of materials.
+Testing protocol. Assembly guide. Operating manual.
+Ready for evaluation by a semiconductor partner.
+This is one example. There are more.

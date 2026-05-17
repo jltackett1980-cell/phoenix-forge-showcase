@@ -1,0 +1,502 @@
+{
+  "verified_date": "2026-02-27",
+  "scoring_version": "600pt_phoenix_forge",
+  "scoring_system": "600pt (275 tech + 225 human + 100 wisdom)",
+  "total_champions": 54,
+  "avg_tech": 275,
+  "avg_human": 214,
+  "avg_wisdom": 85,
+  "avg_total": 574,
+  "above_500": 54,
+  "above_550": 53,
+  "top_performer": "salon",
+  "top_score": 590,
+  "champions": [
+    {
+      "domain": "salon",
+      "tech": 275,
+      "human": 225,
+      "wisdom": 90,
+      "total": 590,
+      "human_grade": "A",
+      "wisdom_grade": "A"
+    },
+    {
+      "domain": "gym",
+      "tech": 275,
+      "human": 225,
+      "wisdom": 85,
+      "total": 585,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "pharmacy",
+      "tech": 275,
+      "human": 225,
+      "wisdom": 85,
+      "total": 585,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "restaurant",
+      "tech": 275,
+      "human": 225,
+      "wisdom": 85,
+      "total": 585,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "dental",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 90,
+      "total": 580,
+      "human_grade": "A",
+      "wisdom_grade": "A"
+    },
+    {
+      "domain": "healthcare",
+      "tech": 275,
+      "human": 217,
+      "wisdom": 85,
+      "total": 577,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "accounting",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "autorepair",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "bakery",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "catering",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "church",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "cleaning",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "construction",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "crypto_exchange",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "custom__c",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "custom_build_me_a",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "daycare",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "drone_delivery",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "esports",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "events",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "fleet_management",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "freelancer",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_engine",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_mobile",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_platformer",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_puzzle",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_racing",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_rpg",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_shooter",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "game_strategy",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "insurance",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "inventory",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "jobboard",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "mental-health",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "mental_wellness",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "music_studio",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "nonprofit",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "petcare",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "photography",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "plumber",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "realestate",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "rental",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "school",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "smart_farm",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "spa",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "supply_chain",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "telehealth",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "tutoring",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "vr_studio",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "yoga",
+      "tech": 275,
+      "human": 215,
+      "wisdom": 85,
+      "total": 575,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "rf_sensing",
+      "tech": 275,
+      "human": 205,
+      "wisdom": 80,
+      "total": 560,
+      "human_grade": "A",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "autonomous_vehicle",
+      "tech": 275,
+      "human": 198,
+      "wisdom": 85,
+      "total": 558,
+      "human_grade": "B",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "robotics",
+      "tech": 275,
+      "human": 198,
+      "wisdom": 85,
+      "total": 558,
+      "human_grade": "B",
+      "wisdom_grade": "B"
+    },
+    {
+      "domain": "law",
+      "tech": 275,
+      "human": 183,
+      "wisdom": 85,
+      "total": 543,
+      "human_grade": "B",
+      "wisdom_grade": "B"
+    }
+  ]
+}

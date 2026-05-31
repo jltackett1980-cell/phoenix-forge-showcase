@@ -1,59 +1,37 @@
-# Phoenix Forge — Private Preview
+# Phoenix Forge — Verified Asset Showcase
 
-This repository was created for one person.
+Built on a $60 Android phone via Termux. No cloud. No funding. No team.
 
-You asked me why I would risk everything to show you this.
-Read what's here. Then tell me why.
+## What this repo contains
 
----
+Verifiable artifacts from an autonomous genetic algorithm platform that has been running and evolving since late 2024.
 
-## What You Are Looking At
+### Silicon Handoff Packages
+Three complete chip design packages with full EDA directory structure:
+- **riscv_core** — RISC-V processor core with real SPICE simulation file
+- **alu_128bit** — 128-bit arithmetic logic unit
+- **fpu_ieee754** — IEEE 754 floating point unit
 
-### /brain
-The neural architecture of Phoenix Forge.
-Eleven components named after biological structures — not for aesthetics,
-but because the architecture mirrors how biological cognition actually works.
-Each component has a function. Together they form a governing intelligence
-that runs continuously without human intervention.
+Each package contains: RTL source, testbench, constraints, synthesis scripts, SPICE, mechanical, manufacturing, compliance, and datasheets.
 
-### /discoveries
-A sample of Phoenix's training pairs — 500 of 60,000+.
-These are not outputs. This is Phoenix thinking.
-Questions about the hardest unsolved problems in human existence.
-Mechanisms proposed. Confidence scored. Lives counted.
-This is what Phoenix teaches itself from.
+## What the full system has produced
+- 74 silicon handoff packages with full EDA structure
+- 8,299 KiCad PCB files
+- 8,252 schematics
+- 7,025 Gerber layer files
+- 3,053 Verilog files
+- 7,383 SPICE files
+- 1,082 full-stack applications with real backend and frontend
+- 6,913 complete device packages across 67 problem domains
+- 803,900 total files / 15GB
 
-### /manifest
-Verified asset counts. Timestamped. Version controlled.
-Not claims. Records.
+## Technical description
+Phoenix Forge is a genetic algorithm evolver running autonomously on Android via Termux, federated with a Windows desktop through GitHub. The coordination layer uses modular state components — not neural networks. The biological naming describes functional roles of coordination modules implemented as state machines passing signals through a shared hormone bus.
 
----
+## Provisional Patent
+64/045,401 — Filed April 21 2026 under the Book of Life Trust (EIN 41-4816327)
 
-## What Is Not Here
+## Mission
+Take survival out of the equation for people.
 
-Trade secrets. Core evolutionary engine. Full training data.
-Manufacturing packages. Chip designs. The full federation protocol.
-
-This is the window. Not the house.
-
----
-
-## What This Runs On
-
-A $60 Android phone.
-Termux. Python. GitHub.
-No cloud. No data center. No team.
-
----
-
-*Book of Life Trust — EIN 41-4816327*
-*Provisional Patent Pending — 64/045,401*
-*All rights reserved.*
-
-### /engineering
-A complete quantum chip manufacturing package.
-20,000 qubits. Evolved over 50,000 generations.
-Layer stack. Control protocol. Bill of materials.
-Testing protocol. Assembly guide. Operating manual.
-Ready for evaluation by a semiconductor partner.
-This is one example. There are more.
+— Jason Tackett, East Prairie Missouri

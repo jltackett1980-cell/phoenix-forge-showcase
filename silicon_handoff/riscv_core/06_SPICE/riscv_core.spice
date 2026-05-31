@@ -1,0 +1,193 @@
+* SPICE — riscv_core | 105 cells
+
+.subckt AND2 A B Y
+B_AND internal 0 V=0.5*(tanh(20*(V(A)-0.5))+1)*(tanh(20*(V(B)-0.5))+1)
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt ANDN2 A B Y
+B_ANDN internal 0 V=0.5*(tanh(20*(V(A)-0.5))+1)*(1-0.5*(tanh(20*(V(B)-0.5))+1))
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt CELL_SDFFE_PP A B Y
+B_CELL_SDFFE_PP internal 0 V=0.5*(tanh(20*(V(A)-0.5))+1)*(tanh(20*(V(B)-0.5))+1)
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt DFFP C D Q
+B_DFF internal 0 V=V(D)*0.5*(tanh(100*(V(C)-0.49))+1) + V(Q)*(1-0.5*(tanh(100*(V(C)-0.49))+1))
+R_out internal Q 1
+R_pull Q 0 100k
+C_load Q 0 10f
+.ends
+
+.subckt INV A Y
+B_INV internal 0 V=1-0.5*(tanh(20*(V(A)-0.5))+1)
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt NAND2 A B Y
+B_NAND internal 0 V=1-0.5*(tanh(20*(V(A)-0.5))+1)*(tanh(20*(V(B)-0.5))+1)
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt NOR2 A B Y
+B_NOR internal 0 V=1-(0.5*(tanh(20*(V(A)-0.5))+tanh(20*(V(B)-0.5))+2) - 0.5*(tanh(20*(V(A)-0.5))+1)*(tanh(20*(V(B)-0.5))+1))
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt ORN2 A B Y
+B_ORN internal 0 V=0.5*(tanh(20*(V(A)-0.5))+tanh(20*(V(B)-0.5))+2) - V(A)*0.5*(tanh(20*(V(B)-0.5))+1)
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt XNOR2 A B Y
+B_XNOR internal 0 V=1-0.5*(tanh(20*(V(A)-0.5))-tanh(20*(V(B)-0.5)))**2
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+.subckt XOR2 A B Y
+B_XOR internal 0 V=0.5*(tanh(20*(V(A)-0.5))-tanh(20*(V(B)-0.5)))**2
+R_out internal Y 1
+R_pull Y 0 100k
+C_load Y 0 10f
+.ends
+
+* MAIN: riscv_core
+
+X0 pc w37 w38 XOR2
+X1 pc w39 w40 XOR2
+X2 pc w41 w42 XOR2
+X3 pc w43 w44 XOR2
+X4 pc w45 w46 XOR2
+X5 pc pc w47 XOR2
+X6 instr w48 w49 ORN2
+X7 rst w50 w51 NOR2
+X8 w49 w51 w52 NAND2
+X9 instr rst w53 ANDN2
+X10 w48 w53 w54 AND2
+X11 w55 rst w56 ANDN2
+X12 w57 rst w58 ANDN2
+X13 pc w59 INV
+X14 pc pc w45 AND2
+X15 pc w45 w43 AND2
+X16 pc w43 w41 AND2
+X17 pc w41 w39 AND2
+X18 pc w39 w37 AND2
+X19 pc w37 w60 AND2
+X20 pc w60 w61 AND2
+X21 pc w61 w62 AND2
+X22 pc w62 w63 AND2
+X23 pc w63 w64 AND2
+X24 pc w64 w65 AND2
+X25 pc w65 w66 AND2
+X26 pc w66 w67 AND2
+X27 pc w67 w68 AND2
+X28 pc w68 w69 AND2
+X29 pc w69 w70 AND2
+X30 pc w70 w71 AND2
+X31 pc w71 w72 AND2
+X32 pc w72 w73 AND2
+X33 pc w73 w74 AND2
+X34 pc w74 w75 AND2
+X35 pc w75 w76 AND2
+X36 pc w76 w77 AND2
+X37 pc w77 w78 AND2
+X38 pc w78 w79 AND2
+X39 pc w79 w80 AND2
+X40 pc w80 w81 AND2
+X41 pc w81 w82 AND2
+X42 pc w82 w83 AND2
+X43 pc w83 w84 NAND2
+X44 pc w84 w85 XNOR2
+X45 pc w83 w86 XOR2
+X46 pc w82 w87 XOR2
+X47 pc w81 w88 XOR2
+X48 pc w80 w89 XOR2
+X49 pc w79 w90 XOR2
+X50 pc w78 w91 XOR2
+X51 pc w77 w92 XOR2
+X52 pc w76 w93 XOR2
+X53 pc w75 w94 XOR2
+X54 pc w74 w95 XOR2
+X55 pc w73 w96 XOR2
+X56 pc w72 w97 XOR2
+X57 pc w71 w98 XOR2
+X58 pc w70 w99 XOR2
+X59 pc w69 w100 XOR2
+X60 pc w68 w101 XOR2
+X61 pc w67 w102 XOR2
+X62 pc w66 w103 XOR2
+X63 pc w65 w104 XOR2
+X64 pc w64 w105 XOR2
+X65 pc w63 w106 XOR2
+X66 pc w62 w107 XOR2
+X67 pc w61 w108 XOR2
+X68 pc w60 w109 XOR2
+X69 n_0 n_0 n_0 CELL_SDFFE_PP
+X70 n_0 n_0 n_0 CELL_SDFFE_PP
+X71 n_0 n_0 n_0 CELL_SDFFE_PP
+X72 n_0 n_0 n_0 CELL_SDFFE_PP
+X73 n_0 n_0 n_0 CELL_SDFFE_PP
+X74 n_0 n_0 n_0 CELL_SDFFE_PP
+X75 n_0 n_0 n_0 CELL_SDFFE_PP
+X76 n_0 n_0 n_0 CELL_SDFFE_PP
+X77 n_0 n_0 n_0 CELL_SDFFE_PP
+X78 n_0 n_0 n_0 CELL_SDFFE_PP
+X79 n_0 n_0 n_0 CELL_SDFFE_PP
+X80 n_0 n_0 n_0 CELL_SDFFE_PP
+X81 n_0 n_0 n_0 CELL_SDFFE_PP
+X82 n_0 n_0 n_0 CELL_SDFFE_PP
+X83 n_0 n_0 n_0 CELL_SDFFE_PP
+X84 n_0 n_0 n_0 CELL_SDFFE_PP
+X85 n_0 n_0 n_0 CELL_SDFFE_PP
+X86 n_0 n_0 n_0 CELL_SDFFE_PP
+X87 n_0 n_0 n_0 CELL_SDFFE_PP
+X88 n_0 n_0 n_0 CELL_SDFFE_PP
+X89 n_0 n_0 n_0 CELL_SDFFE_PP
+X90 n_0 n_0 n_0 CELL_SDFFE_PP
+X91 n_0 n_0 n_0 CELL_SDFFE_PP
+X92 n_0 n_0 n_0 CELL_SDFFE_PP
+X93 n_0 n_0 n_0 CELL_SDFFE_PP
+X94 n_0 n_0 n_0 CELL_SDFFE_PP
+X95 n_0 n_0 n_0 CELL_SDFFE_PP
+X96 n_0 n_0 n_0 CELL_SDFFE_PP
+X97 n_0 n_0 n_0 CELL_SDFFE_PP
+X98 n_0 n_0 n_0 CELL_SDFFE_PP
+X99 n_0 n_0 n_0 CELL_SDFFE_PP
+X100 n_0 n_0 n_0 CELL_SDFFE_PP
+X101 clk w52 w48 DFFP
+X102 clk w58 w55 DFFP
+X103 clk w54 w57 DFFP
+X104 clk w56 w50 DFFP
+
+V0 clk 0 PULSE(0 1.0 1n 0.05n 0.05n 4.95n 10n)
+V1 instr 0 DC 1.0
+V2 rst 0 DC 1.0
+R_pc pc 0 1Meg
+
+.save all
+.options method=gear maxord=2 gmin=1e-12
+.options reltol=0.01 vntol=1e-4 abstol=1e-6
+.tran 0.05n 50n
+
+.print tran v(pc)
+
+.end

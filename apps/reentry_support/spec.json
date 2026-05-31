@@ -1,0 +1,77 @@
+{
+  "domain": "custom_build_a_reentry",
+  "name": "Build A Reentry Support",
+  "tagline": "",
+  "color": "#2C3E50",
+  "human_greeting": "Welcome to Build A Reentry Support.",
+  "today_focus": "How can we help you today?",
+  "features": [
+    "dashboard",
+    "records"
+  ],
+  "pillar": "on_demand",
+  "entities": {
+    "Booking": {
+      "fields": [
+        "booking_id",
+        "customer_name",
+        "customer_phone",
+        "provider_name",
+        "service",
+        "location",
+        "scheduled_date",
+        "scheduled_time",
+        "duration",
+        "rate",
+        "total",
+        "status",
+        "rating",
+        "notes"
+      ],
+      "relationships": [],
+      "validations": []
+    },
+    "Customer": {
+      "fields": [
+        "booking_id",
+        "name",
+        "phone"
+      ],
+      "relationships": [
+        "belongs_to booking"
+      ],
+      "validations": [
+        "name required"
+      ]
+    },
+    "Provider": {
+      "fields": [
+        "booking_id",
+        "name"
+      ],
+      "relationships": [
+        "belongs_to booking"
+      ],
+      "validations": [
+        "name required"
+      ]
+    }
+  },
+  "business_rules": {},
+  "endpoints": [
+    "GET /api/bookings",
+    "POST /api/bookings",
+    "GET /api/bookings/<int:parent_id>",
+    "PUT /api/bookings/<int:parent_id>",
+    "DELETE /api/bookings/<int:parent_id>",
+    "PATCH /api/bookings/<int:parent_id>/status",
+    "GET /api/bookings/<int:parent_id>/customers",
+    "POST /api/bookings/<int:parent_id>/customers",
+    "GET /api/customers",
+    "POST /api/customers",
+    "GET /api/bookings/<int:parent_id>/providers",
+    "POST /api/bookings/<int:parent_id>/providers",
+    "GET /api/providers",
+    "POST /api/providers"
+  ]
+}

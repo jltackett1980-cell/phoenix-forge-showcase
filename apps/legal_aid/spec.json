@@ -1,0 +1,56 @@
+{
+  "domain": "law",
+  "name": "LegalDesk",
+  "tagline": "",
+  "color": "#2C3E50",
+  "human_greeting": "Welcome to LegalDesk.",
+  "today_focus": "How can we help you today?",
+  "features": [
+    "dashboard",
+    "records"
+  ],
+  "pillar": "legal",
+  "entities": {
+    "Case": {
+      "fields": [
+        "case_number",
+        "client_name",
+        "attorney",
+        "case_type",
+        "filing_date",
+        "court_date",
+        "opposing_counsel",
+        "status",
+        "retainer_paid",
+        "notes"
+      ],
+      "relationships": [],
+      "validations": []
+    },
+    "Client": {
+      "fields": [
+        "case_id",
+        "name"
+      ],
+      "relationships": [
+        "belongs_to case"
+      ],
+      "validations": [
+        "name required"
+      ]
+    }
+  },
+  "business_rules": {},
+  "endpoints": [
+    "GET /api/cases",
+    "POST /api/cases",
+    "GET /api/cases/<int:parent_id>",
+    "PUT /api/cases/<int:parent_id>",
+    "DELETE /api/cases/<int:parent_id>",
+    "PATCH /api/cases/<int:parent_id>/status",
+    "GET /api/cases/<int:parent_id>/clients",
+    "POST /api/cases/<int:parent_id>/clients",
+    "GET /api/clients",
+    "POST /api/clients"
+  ]
+}

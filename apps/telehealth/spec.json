@@ -1,0 +1,71 @@
+{
+  "domain": "telehealth",
+  "name": "TeleHealth",
+  "tagline": "",
+  "color": "#2C3E50",
+  "human_greeting": "Welcome to TeleHealth.",
+  "today_focus": "How can we help you today?",
+  "features": [
+    "dashboard",
+    "records"
+  ],
+  "pillar": "healthcare",
+  "entities": {
+    "Consultation": {
+      "fields": [
+        "patient_name",
+        "provider",
+        "session_date",
+        "session_type",
+        "chief_complaint",
+        "diagnosis",
+        "prescription_issued",
+        "follow_up_date",
+        "insurance_id",
+        "recording_consent"
+      ],
+      "relationships": [],
+      "validations": []
+    },
+    "Patient": {
+      "fields": [
+        "consultation_id",
+        "name"
+      ],
+      "relationships": [
+        "belongs_to consultation"
+      ],
+      "validations": [
+        "name required"
+      ]
+    },
+    "Insurance": {
+      "fields": [
+        "consultation_id",
+        "name"
+      ],
+      "relationships": [
+        "belongs_to consultation"
+      ],
+      "validations": [
+        "name required"
+      ]
+    }
+  },
+  "business_rules": {},
+  "endpoints": [
+    "GET /api/consultations",
+    "POST /api/consultations",
+    "GET /api/consultations/<int:parent_id>",
+    "PUT /api/consultations/<int:parent_id>",
+    "DELETE /api/consultations/<int:parent_id>",
+    "GET /api/consultations/<int:parent_id>/patients",
+    "POST /api/consultations/<int:parent_id>/patients",
+    "GET /api/patients",
+    "POST /api/patients",
+    "GET /api/consultations/<int:parent_id>/insurances",
+    "POST /api/consultations/<int:parent_id>/insurances",
+    "GET /api/insurances",
+    "POST /api/insurances"
+  ]
+}

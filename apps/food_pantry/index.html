@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build A Food Pantry - Dashboard</title>
+<style>
+  :root { --primary: #2C3E50; --bg: #f0f2f5; --card: #fff; --text: #1a1a2e; --border: #e0e0e0; --success: #27ae60; --danger: #e74c3c; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
+  header { background: var(--primary); color: white; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+  header h1 { font-size: 20px; }
+  header .user { font-size: 13px; opacity: 0.9; }
+  .tabs { display: flex; gap: 4px; padding: 12px 24px; background: var(--card); border-bottom: 2px solid var(--border); }
+  .tab { padding: 8px 20px; border: none; background: none; cursor: pointer; font-size: 14px; font-weight: 500; color: #666; border-radius: 6px; }
+  .tab.active { background: var(--primary); color: white; }
+  .tab:hover:not(.active) { background: #e8e8e8; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  .card { background: var(--card); border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .card h3 { margin-bottom: 16px; font-size: 16px; color: var(--primary); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  th { font-weight: 600; color: #888; text-transform: uppercase; font-size: 11px; }
+  tr:hover { background: #f8f9fa; }
+  .actions { display: flex; gap: 6px; }
+  .btn { padding: 6px 14px; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+  .btn-edit { background: #3498db; color: white; }
+  .btn-delete { background: var(--danger); color: white; }
+  .btn-add { background: var(--success); color: white; padding: 10px 24px; font-size: 14px; margin-bottom: 16px; }
+  .btn-save { background: var(--primary); color: white; width: 100%; padding: 12px; font-size: 14px; margin-top: 12px; }
+  .form-group { margin-bottom: 12px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: #666; margin-bottom: 4px; text-transform: uppercase; }
+  .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; }
+  .form-group input:focus { outline: none; border-color: var(--primary); }
+  .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+  .modal.active { display: flex; }
+  .modal-content { background: white; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; max-height: 80vh; overflow-y: auto; }
+  .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .modal-close { background: none; border: none; font-size: 24px; cursor: pointer; }
+  .toast { position: fixed; bottom: 20px; right: 20px; background: #333; color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 2000; display: none; }
+  .toast.show { display: block; animation: fadeIn 0.3s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Build A Food Pantry</h1>
+  <div class="user">
+    <span id="username">Not logged in</span>
+    <button class="btn btn-add" onclick="showLogin()" id="loginBtn" style="margin-left:12px;padding:6px 14px;">Login</button>
+  </div>
+</header>
+
+<div class="tabs"><button class="tab active" onclick="switchTab('Patient')">Patient</button>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h3 id="tableTitle">Patient List</h3>
+      <button class="btn btn-add" onclick="showAddForm()">+ Add Patient</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead><tr><th>ID</th><th>Name</th><th>Dob</th><th>Phone</th><th>Email</th><th>Diagnosis</th><th>Treatment</th><th>Doctor</th><th>Appointment Date</th><th>Actions</th></tr></thead>
+        <tbody id="dataTable"><tr><td colspan="10" style="text-align:center;padding:40px;">Loading...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="modal" id="editModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Add Patient</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div id="modalForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="form_name" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label>Dob</label>
+                <input type="text" id="form_dob" placeholder="dob">
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" id="form_phone" placeholder="phone">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" id="form_email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label>Diagnosis</label>
+                <input type="text" id="form_diagnosis" placeholder="diagnosis">
+            </div>
+            <div class="form-group">
+                <label>Treatment</label>
+                <input type="text" id="form_treatment" placeholder="treatment">
+            </div>
+            <div class="form-group">
+                <label>Doctor</label>
+                <input type="text" id="form_doctor" placeholder="doctor">
+            </div>
+            <div class="form-group">
+                <label>Appointment Date</label>
+                <input type="text" id="form_appointment_date" placeholder="appointment date">
+            </div></div>
+    <button class="btn btn-save" onclick="saveItem()">Save</button>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Login</h3>
+      <button class="modal-close" onclick="closeLogin()">&times;</button>
+    </div>
+    <div class="form-group"><label>Username</label><input type="text" id="loginUser" placeholder="username"></div>
+    <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="password"></div>
+    <button class="btn btn-save" onclick="doLogin()">Login</button>
+    <p style="margin-top:12px;font-size:13px;text-align:center;">No account? <a href="#" onclick="doRegister()">Register</a></p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API = '';
+const ENTITIES = {"Patient": {"plural": "patients", "fields": ["name", "dob", "phone", "email", "diagnosis", "treatment", "doctor", "appointment_date"]}};
+let currentEntity = 'Patient';
+let currentEditId = null;
+let token = localStorage.getItem('token') || '';
+
+function getHeaders() {
+  const h = {'Content-Type': 'application/json'};
+  if (token) h['Authorization'] = 'Bearer ' + token;
+  return h;
+}
+
+function switchTab(entity) {
+  currentEntity = entity;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('tableTitle').textContent = entity + ' List';
+  document.getElementById('modalTitle').textContent = 'Add ' + entity;
+  loadData();
+}
+
+async function loadData() {
+  const cfg = ENTITIES[currentEntity];
+  if (!cfg) return;
+  try {
+    const res = await fetch(API + '/api/' + cfg.plural, {headers: getHeaders()});
+    const data = await res.json();
+    const tbody = document.getElementById('dataTable');
+    if (!data.length) {
+      tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:40px;">No records yet. Click "+ Add" to create one.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = data.map(item => {
+      const cells = cfg.fields.map(f => `<td>${item[f] || ''}</td>`).join('');
+      return `<tr>
+        <td>${item.id}</td>${cells}
+        <td class="actions">
+          <button class="btn btn-edit" onclick="editItem(${item.id})">Edit</button>
+          <button class="btn btn-delete" onclick="deleteItem(${item.id})">Del</button>
+        </td>
+      </tr>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('dataTable').innerHTML = '<tr><td colspan="10" style="text-align:center;padding:40px;">Error loading data. Check connection.</td></tr>';
+  }
+}
+
+function showAddForm() {
+  currentEditId = null;
+  document.getElementById('modalTitle').textContent = 'Add ' + currentEntity;
+  const cfg = ENTITIES[currentEntity];
+  cfg.fields.forEach(f => {
+    const el = document.getElementById('form_' + f);
+    if (el) el.value = '';
+  });
+  document.getElementById('editModal').classList.add('active');
+}
+
+function editItem(id) {
+  currentEditId = id;
+  document.getElementById('modalTitle').textContent = 'Edit ' + currentEntity;
+  const cfg = ENTITIES[currentEntity];
+  fetch(API + '/api/' + cfg.plural + '/' + id, {headers: getHeaders()})
+    .then(r => r.json())
+    .then(item => {
+      cfg.fields.forEach(f => {
+        const el = document.getElementById('form_' + f);
+        if (el) el.value = item[f] || '';
+      });
+      document.getElementById('editModal').classList.add('active');
+    });
+}
+
+function closeModal() {
+  document.getElementById('editModal').classList.remove('active');
+}
+
+async function saveItem() {
+  const cfg = ENTITIES[currentEntity];
+  const body = {};
+  cfg.fields.forEach(f => {
+    const el = document.getElementById('form_' + f);
+    if (el) body[f] = el.value;
+  });
+  
+  const method = currentEditId ? 'PUT' : 'POST';
+  const url = currentEditId 
+    ? API + '/api/' + cfg.plural + '/' + currentEditId
+    : API + '/api/' + cfg.plural;
+  
+  try {
+    const res = await fetch(url, {method, headers: getHeaders(), body: JSON.stringify(body)});
+    if (res.ok) {
+      toast(currentEditId ? 'Updated!' : 'Created!');
+      closeModal();
+      loadData();
+    } else {
+      const err = await res.json();
+      toast('Error: ' + (err.error || 'Failed'));
+    }
+  } catch(e) {
+    toast('Network error');
+  }
+}
+
+async function deleteItem(id) {
+  if (!confirm('Delete this record?')) return;
+  const cfg = ENTITIES[currentEntity];
+  try {
+    await fetch(API + '/api/' + cfg.plural + '/' + id, {method: 'DELETE', headers: getHeaders()});
+    toast('Deleted');
+    loadData();
+  } catch(e) {
+    toast('Error deleting');
+  }
+}
+
+function showLogin() {
+  document.getElementById('loginModal').classList.add('active');
+}
+
+function closeLogin() {
+  document.getElementById('loginModal').classList.remove('active');
+}
+
+async function doLogin() {
+  const u = document.getElementById('loginUser').value;
+  const p = document.getElementById('loginPass').value;
+  try {
+    const res = await fetch(API + '/api/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: u, password: p})
+    });
+    const data = await res.json();
+    if (data.token) {
+      token = data.token;
+      localStorage.setItem('token', token);
+      document.getElementById('username').textContent = data.username;
+      document.getElementById('loginBtn').textContent = 'Logout';
+      document.getElementById('loginBtn').onclick = doLogout;
+      closeLogin();
+      toast('Logged in');
+      loadData();
+    }
+  } catch(e) { toast('Login failed'); }
+}
+
+async function doRegister() {
+  const u = document.getElementById('loginUser').value;
+  const p = document.getElementById('loginPass').value;
+  if (!u || !p) { toast('Enter username and password'); return; }
+  try {
+    await fetch(API + '/api/auth/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: u, password: p})
+    });
+    toast('Registered! Now login.');
+  } catch(e) { toast('Registration failed'); }
+}
+
+function doLogout() {
+  token = '';
+  localStorage.removeItem('token');
+  document.getElementById('username').textContent = 'Not logged in';
+  document.getElementById('loginBtn').textContent = 'Login';
+  document.getElementById('loginBtn').onclick = showLogin;
+  loadData();
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Init
+if (token) {
+  document.getElementById('loginBtn').textContent = 'Logout';
+  document.getElementById('loginBtn').onclick = doLogout;
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    document.getElementById('username').textContent = payload.user;
+  } catch(e) {}
+}
+loadData();
+</script>
+</body>
+</html>

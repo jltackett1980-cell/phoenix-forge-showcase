@@ -1,0 +1,41 @@
+{
+  "domain": "custom_build_a_food",
+  "name": "Build A Food Pantry",
+  "tagline": "",
+  "color": "#2C3E50",
+  "human_greeting": "Welcome to Build A Food Pantry.",
+  "today_focus": "How can we help you today?",
+  "features": [
+    "dashboard",
+    "records"
+  ],
+  "pillar": "medical",
+  "entities": {
+    "Patient": {
+      "fields": [
+        "name",
+        "dob",
+        "phone",
+        "email",
+        "diagnosis",
+        "treatment",
+        "doctor",
+        "appointment_date",
+        "insurance",
+        "status",
+        "notes"
+      ],
+      "relationships": [],
+      "validations": []
+    }
+  },
+  "business_rules": {},
+  "endpoints": [
+    "GET /api/patients",
+    "POST /api/patients",
+    "GET /api/patients/<int:parent_id>",
+    "PUT /api/patients/<int:parent_id>",
+    "DELETE /api/patients/<int:parent_id>",
+    "PATCH /api/patients/<int:parent_id>/status"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "domain": "ministry",
+  "name": "Member Pro",
+  "tagline": "",
+  "color": "#2C3E50",
+  "human_greeting": "Welcome to ministry.",
+  "today_focus": "How can we help you today?",
+  "features": [
+    "dashboard",
+    "records"
+  ],
+  "pillar": "community",
+  "entities": {
+    "Member": {
+      "fields": [
+        "member_name",
+        "join_date",
+        "ministry_role",
+        "attendance_rate",
+        "tithe_status",
+        "small_group",
+        "volunteer_hours",
+        "prayer_requests",
+        "contact_info",
+        "baptism_date"
+      ],
+      "relationships": [],
+      "validations": []
+    }
+  },
+  "business_rules": {},
+  "endpoints": [
+    "GET /api/members",
+    "POST /api/members",
+    "GET /api/members/<int:parent_id>",
+    "PUT /api/members/<int:parent_id>",
+    "DELETE /api/members/<int:parent_id>",
+    "PATCH /api/members/<int:parent_id>/status"
+  ]
+}

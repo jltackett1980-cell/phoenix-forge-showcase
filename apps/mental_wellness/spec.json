@@ -1,0 +1,55 @@
+{
+  "domain": "mental_wellness",
+  "name": "MindSpace",
+  "tagline": "",
+  "color": "#2C3E50",
+  "human_greeting": "Welcome to MindSpace.",
+  "today_focus": "How can we help you today?",
+  "features": [
+    "dashboard",
+    "records"
+  ],
+  "pillar": "wellness",
+  "entities": {
+    "Booking": {
+      "fields": [
+        "client_name",
+        "therapist",
+        "session_date",
+        "session_type",
+        "mood_rating",
+        "goals_progress",
+        "crisis_plan",
+        "homework_assigned",
+        "next_appointment",
+        "insurance"
+      ],
+      "relationships": [],
+      "validations": []
+    },
+    "Client": {
+      "fields": [
+        "booking_id",
+        "name"
+      ],
+      "relationships": [
+        "belongs_to booking"
+      ],
+      "validations": [
+        "name required"
+      ]
+    }
+  },
+  "business_rules": {},
+  "endpoints": [
+    "GET /api/bookings",
+    "POST /api/bookings",
+    "GET /api/bookings/<int:parent_id>",
+    "PUT /api/bookings/<int:parent_id>",
+    "DELETE /api/bookings/<int:parent_id>",
+    "GET /api/bookings/<int:parent_id>/clients",
+    "POST /api/bookings/<int:parent_id>/clients",
+    "GET /api/clients",
+    "POST /api/clients"
+  ]
+}
